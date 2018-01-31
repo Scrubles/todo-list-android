@@ -14,6 +14,7 @@
     <string name="todo_list_done">Done</string>
     <string name="todo_list_save">Save</string>
     <string name="todo_list_cancel">Cancel</string>
+    <string name="todo_list_empty_title">Enter a title</string>
 
     <string name="about_text">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed semper lacus diam, eget pharetra ipsum varius eget. Ut sollicitudin leo non ex pellentesque, sed scelerisque leo tincidunt. Nam id odio massa. Aliquam pretium, enim non pellentesque elementum, ligula orci accumsan tortor, ac tempor dui leo ac arcu. Vivamus maximus magna ac sem imperdiet, vitae lacinia dolor vestibulum. Nulla facilisi. Nullam rutrum dolor ac malesuada ultrices. Nunc faucibus ex metus, ac convallis mauris commodo eu. Praesent sed erat in magna venenatis fermentum nec at eros. Vivamus laoreet sagittis urna. Integer imperdiet laoreet massa ut volutpat. Sed vel erat ut sem gravida blandit vitae sit amet nisi.
