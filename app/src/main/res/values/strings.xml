@@ -22,4 +22,8 @@
     <string name="about_text_2">
         Aenean ultrices diam in magna euismod, vel iaculis odio bibendum. Cras at euismod urna. Praesent ut tellus id justo lobortis blandit eget quis lacus. Nam sagittis ultrices varius. Etiam ut ex sit amet neque blandit rhoncus quis ac tellus. Nullam sapien erat, commodo pretium porttitor sed, congue at mauris. Donec rutrum vitae ante quis varius.
     </string>
+
+    <string name="delete_confirmation">"Are you sure you want to delete?"</string>
+    <string name="delete_confirmation_yes">Yes</string>
+    <string name="delete_confirmation_cancel">Cancel</string>
 </resources>

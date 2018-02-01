@@ -19,7 +19,7 @@ import java.util.List;
 import br.com.scrubles.todolist.model.ActivitiesViewModel;
 import br.com.scrubles.todolist.model.Activity;
 
-public class ListFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener, TodoForm.NoticeDialogListener {
+public abstract class ListFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener, TodoForm.NoticeDialogListener {
 
     protected RecyclerView.Adapter adapter;
     protected ActivitiesViewModel activitiesViewModel;
@@ -27,6 +27,12 @@ public class ListFragment extends Fragment implements View.OnClickListener, View
     protected ActionMode actionMode;
     protected List<Activity> selectedActivities;
     protected List<View> selectedActivityViews;
+
+    public List<Activity> getSelectedActivities() {
+        return selectedActivities;
+    }
+
+    public abstract int getTitleId();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -103,16 +109,17 @@ public class ListFragment extends Fragment implements View.OnClickListener, View
         }.execute(activity);
     }
 
-    public boolean endActionMode() {
+    public void finishActionMode() {
+        if(actionMode != null)
+            actionMode.finish();
+    }
+
+    public boolean onEndActionMode() {
         actionMode = null;
         selectedActivities = null;
         for(View view : selectedActivityViews)
             view.setBackground(null);
         selectedActivityViews = null;
         return true;
-    }
-
-    public List<Activity> getSelectedActivities() {
-        return selectedActivities;
     }
 }

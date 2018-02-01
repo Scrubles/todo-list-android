@@ -1,5 +1,7 @@
 package br.com.scrubles.todolist;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -31,8 +33,8 @@ public class ToolBarActionModeCallback implements ActionMode.Callback {
     }
 
     @Override
-    public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-        List<Activity> activities = fragment.getSelectedActivities();
+    public boolean onActionItemClicked(final ActionMode mode, MenuItem item) {
+        final List<Activity> activities = fragment.getSelectedActivities();
         switch (item.getItemId()) {
             case R.id.action_checkUncheck:
                 for(Activity activity : activities)
@@ -46,13 +48,27 @@ public class ToolBarActionModeCallback implements ActionMode.Callback {
                 mode.finish();
                 break;
             case R.id.action_delete:
-                new DatabaseAsyncTask<Activity>() {
-                    @Override
-                    public void handle(Activity... activities) {
-                        AppDatabase.getInstance().activityDAO().delete(activities);
-                    }
-                }.execute(toArray(activities));
-                mode.finish();
+                final AlertDialog dialog = new AlertDialog.Builder(fragment.getContext())
+                    .setTitle(R.string.delete_confirmation)
+                    .setPositiveButton(R.string.delete_confirmation_yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int id) {
+                            new DatabaseAsyncTask<Activity>() {
+                                @Override
+                                public void handle(Activity... activities) {
+                                    AppDatabase.getInstance().activityDAO().delete(activities);
+                                }
+                            }.execute(toArray(activities));
+                            mode.finish();
+                        }
+                    })
+                    .setNegativeButton(R.string.delete_confirmation_cancel, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    }).create();
+                dialog.show();
                 break;
         }
         return false;
@@ -64,6 +80,6 @@ public class ToolBarActionModeCallback implements ActionMode.Callback {
 
     @Override
     public void onDestroyActionMode(ActionMode mode) {
-        fragment.endActionMode();
+        fragment.onEndActionMode();
     }
 }

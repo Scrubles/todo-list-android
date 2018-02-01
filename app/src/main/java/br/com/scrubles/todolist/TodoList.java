@@ -12,9 +12,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.Arrays;
+import java.util.List;
+
 import br.com.scrubles.todolist.model.Activity;
 
 public class TodoList extends Fragment implements TodoForm.NoticeDialogListener {
+
+    private List<ListFragment> listFragments;
 
     @Nullable
     @Override
@@ -27,9 +32,28 @@ public class TodoList extends Fragment implements TodoForm.NoticeDialogListener 
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle(R.string.nav_todo_list);
 
+        listFragments = Arrays.asList(new TodoListFragment(), new DoneListFragment());
+
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getChildFragmentManager());
-        TabLayout tabs = (TabLayout) view.findViewById(R.id.tabs);
-        ViewPager viewPager = (ViewPager) view.findViewById(R.id.container);
+        TabLayout tabs = view.findViewById(R.id.tabs);
+        ViewPager viewPager = view.findViewById(R.id.container);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                for(ListFragment listFragment: listFragments)
+                    listFragment.finishActionMode();
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
         viewPager.setAdapter(adapter);
         tabs.setupWithViewPager(viewPager);
 
@@ -62,31 +86,17 @@ public class TodoList extends Fragment implements TodoForm.NoticeDialogListener 
 
         @Override
         public Fragment getItem(int position) {
-            switch(position) {
-                case 0:
-                    return new TodoListFragment();
-                case 1:
-                    return new DoneListFragment();
-            }
-
-            return null;
+            return listFragments.get(position);
         }
 
         @Override
         public int getCount() {
-            return 2;
+            return listFragments.size();
         }
 
         @Override
         public CharSequence getPageTitle (int position) {
-            switch(position) {
-                case 0:
-                    return getString(R.string.todo_list_todo);
-                case 1:
-                    return getString(R.string.todo_list_done);
-            }
-
-            return null;
+            return getString(listFragments.get(position).getTitleId());
         }
     }
 }
