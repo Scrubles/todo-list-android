@@ -62,7 +62,7 @@ public class TodoForm extends DialogFragment {
             }
         });
         final AlertDialog dialog = new AlertDialog.Builder(getActivity())
-            .setTitle("Activity")
+            .setTitle(getString(R.string.todo_list_activity))
             .setView(view)
             .setPositiveButton(R.string.todo_list_save, null)
             .setNegativeButton(R.string.todo_list_cancel, new DialogInterface.OnClickListener() {

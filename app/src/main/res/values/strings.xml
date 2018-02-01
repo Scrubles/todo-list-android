@@ -12,18 +12,29 @@
 
     <string name="todo_list_todo">To do</string>
     <string name="todo_list_done">Done</string>
+    <string name="todo_list_activity">Activity</string>
     <string name="todo_list_save">Save</string>
     <string name="todo_list_cancel">Cancel</string>
     <string name="todo_list_empty_title">Enter a title</string>
 
-    <string name="about_text_1">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed semper lacus diam, eget pharetra ipsum varius eget. Ut sollicitudin leo non ex pellentesque, sed scelerisque leo tincidunt. Nam id odio massa. Aliquam pretium, enim non pellentesque elementum, ligula orci accumsan tortor, ac tempor dui leo ac arcu. Vivamus maximus magna ac sem imperdiet, vitae lacinia dolor vestibulum. Nulla facilisi. Nullam rutrum dolor ac malesuada ultrices. Nunc faucibus ex metus, ac convallis mauris commodo eu. Praesent sed erat in magna venenatis fermentum nec at eros. Vivamus laoreet sagittis urna. Integer imperdiet laoreet massa ut volutpat. Sed vel erat ut sem gravida blandit vitae sit amet nisi.
-    </string>
-    <string name="about_text_2">
-        Aenean ultrices diam in magna euismod, vel iaculis odio bibendum. Cras at euismod urna. Praesent ut tellus id justo lobortis blandit eget quis lacus. Nam sagittis ultrices varius. Etiam ut ex sit amet neque blandit rhoncus quis ac tellus. Nullam sapien erat, commodo pretium porttitor sed, congue at mauris. Donec rutrum vitae ante quis varius.
+    <string name="about_text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed semper lacus diam, eget pharetra ipsum varius eget.
+        Ut sollicitudin leo non ex pellentesque, sed scelerisque leo tincidunt.
+        Nam id odio massa. Aliquam pretium, enim non pellentesque elementum, ligula orci accumsan tortor, ac tempor dui leo ac arcu.
+        Vivamus maximus magna ac sem imperdiet, vitae lacinia dolor vestibulum. Nulla facilisi. Nullam rutrum dolor ac malesuada ultrices.
+        Nunc faucibus ex metus, ac convallis mauris commodo eu. Praesent sed erat in magna venenatis fermentum nec at eros.
+        Vivamus laoreet sagittis urna. Integer imperdiet laoreet massa ut volutpat. Sed vel erat ut sem gravida blandit vitae sit amet nisi.
+        \n\n
+        Aenean ultrices diam in magna euismod, vel iaculis odio bibendum. Cras at euismod urna. Praesent ut tellus id justo lobortis blandit eget quis lacus.
+        Nam sagittis ultrices varius. Etiam ut ex sit amet neque blandit rhoncus quis ac tellus. Nullam sapien erat, commodo pretium porttitor sed, congue at mauris.
+        Donec rutrum vitae ante quis varius.
+        \n\n
+        Aenean ultrices diam in magna euismod, vel iaculis odio bibendum. Cras at euismod urna. Praesent ut tellus id justo lobortis blandit eget quis lacus.
+        Nam sagittis ultrices varius. Etiam ut ex sit amet neque blandit rhoncus quis ac tellus. Nullam sapien erat, commodo pretium porttitor sed, congue at mauris.
+        Donec rutrum vitae ante quis varius.
     </string>
 
-    <string name="delete_confirmation">"Are you sure you want to delete?"</string>
+    <string name="delete_confirmation">Are you sure you want to delete?</string>
     <string name="delete_confirmation_yes">Yes</string>
     <string name="delete_confirmation_cancel">Cancel</string>
 </resources>

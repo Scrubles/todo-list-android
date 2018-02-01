@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class About extends Fragment {
+public class About extends Fragment implements OnBackPressListener {
 
     @Nullable
     @Override
@@ -19,5 +19,11 @@ public class About extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle(R.string.nav_about);
+    }
+
+    @Override
+    public boolean onBackPressed() {
+        ((MainActivity) getActivity()).setTodoListAsActive();
+        return true;
     }
 }

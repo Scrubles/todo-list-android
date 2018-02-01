@@ -1,0 +1,21 @@
+<resources>
+    <string name="navigation_drawer_open">Abrir guia de navegação</string>
+    <string name="navigation_drawer_close">Fechar guia de navegação</string>
+
+    <string name="nav_todo_list">Lista de atividades</string>
+    <string name="nav_about">Sobre</string>
+
+    <string name="delete">Remover</string>
+    <string name="check_uncheck">Feito/A fazer</string>
+
+    <string name="todo_list_todo">A fazer</string>
+    <string name="todo_list_done">Feito</string>
+    <string name="todo_list_activity">Atividade</string>
+    <string name="todo_list_save">Salvar</string>
+    <string name="todo_list_cancel">Cancelar</string>
+    <string name="todo_list_empty_title">Preencha o título</string>
+
+    <string name="delete_confirmation">Tem certeza de que deseja continuar?</string>
+    <string name="delete_confirmation_yes">Sim</string>
+    <string name="delete_confirmation_cancel">Cancelar</string>
+</resources>
