@@ -8,8 +8,10 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -61,6 +63,17 @@ public class TodoForm extends DialogFragment {
 
             }
         });
+        activityTitle.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                boolean handled = false;
+                if (actionId == EditorInfo.IME_ACTION_SEND) {
+                    submit();
+                    handled = true;
+                }
+                return handled;
+            }
+        });
         final AlertDialog dialog = new AlertDialog.Builder(getActivity())
             .setTitle(getString(R.string.todo_list_activity))
             .setView(view)
@@ -79,21 +92,25 @@ public class TodoForm extends DialogFragment {
 
                     @Override
                     public void onClick(View view) {
-                        formSubmitted = true;
-                        String title = activityTitle.getText().toString();
-                        if(!isEmptyString(title)) {
-                            activity.setTitle(title);
-                            if(activity.getCreatedDate() == null)
-                                activity.setCreatedDate(Calendar.getInstance());
-                            listener.onDialogPositiveClick(activity);
-                            dismiss();
-                        } else
-                            textInputLayout.setError(getString(R.string.todo_list_empty_title));
+                        submit();
                     }
                 });
             }
         });
         return dialog;
+    }
+
+    private void submit() {
+        formSubmitted = true;
+        String title = activityTitle.getText().toString();
+        if(!isEmptyString(title)) {
+            activity.setTitle(title);
+            if(activity.getCreatedDate() == null)
+                activity.setCreatedDate(Calendar.getInstance());
+            listener.onDialogPositiveClick(activity);
+            dismiss();
+        } else
+            textInputLayout.setError(getString(R.string.todo_list_empty_title));
     }
 
     private static boolean isEmptyString(CharSequence s) {
